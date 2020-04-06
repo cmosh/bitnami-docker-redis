@@ -16,7 +16,7 @@ eval "$(redis_env)"
 
 # Constants
 REDIS_EXTRA_FLAGS=${REDIS_EXTRA_FLAGS:-}
-EXEC=$(command -v redis-server)
+EXEC=$(command -v redis-server --loadmodule /usr/local/lib/redisql.so)
 
 args=("$REDIS_BASEDIR/etc/redis.conf" "--daemonize" "no" "$@")
 # configure extra command line flags
